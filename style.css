@@ -41,3 +41,17 @@ h1 {
 .countdown-el span{
     font-size: 1.3rem;
 }
+
+.Button-container{
+    margin-top: 5rem;
+}
+
+.textbox{
+    font-size: 20px;
+    padding: 5px;
+}
+
+.btnDate{
+    font-size: 20px;
+    padding: 5px;
+}

@@ -2,11 +2,12 @@ const daysEl = document.getElementById("days");
 const hoursEl = document.getElementById("hours");
 const minsEl = document.getElementById("mins");
 const secondsEl = document.getElementById("seconds");
+const textbox = document.querySelector(".textbox")
 
-const newYears = "1 jan 2023";
+let newYears = "1 jan 2024";
 
 function countdown(){
-     const newYearsDate = new Date(newYears);
+     let newYearsDate = new Date(newYears);
      const currentDate = new Date();
 
      const totalSeconds = (newYearsDate - currentDate) / 1000;
@@ -24,7 +25,19 @@ function countdown(){
      minsEl.innerHTML = mins;
      secondsEl.innerHTML = seconds;
 
+     
 }
+
+function changeDate(){
+     if(textbox.value == ""){
+       newYears = "1 jan 2024";
+     }else {
+
+     let newDate = textbox.value;
+     newYears = newDate;
+     }
+     
+     }
 
 countdown();
 

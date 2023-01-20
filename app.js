@@ -2,43 +2,29 @@ const daysEl = document.getElementById("days");
 const hoursEl = document.getElementById("hours");
 const minsEl = document.getElementById("mins");
 const secondsEl = document.getElementById("seconds");
-const textbox = document.querySelector(".textbox")
+const textbox = document.querySelector(".textbox");
 
 let newYears = "1 jan 2024";
 
-function countdown(){
-     let newYearsDate = new Date(newYears);
-     const currentDate = new Date();
+function countdown() {
+  let newYearsDate = new Date(newYears);
+  let currentDate = new Date();
 
-     const totalSeconds = (newYearsDate - currentDate) / 1000;
+  let totalSeconds = (newYearsDate - currentDate) / 1000;
 
-     const days = Math.floor(totalSeconds / 3600 /24);
-
-     const hours = Math.floor(totalSeconds / 3600 % 24);
-     
-     const mins = Math.floor(totalSeconds / 60) % 60;
-
-     const seconds =  Math.floor(totalSeconds) % 60;
-
-     daysEl.innerHTML = days;
-     hoursEl.innerHTML = hours;
-     minsEl.innerHTML = mins;
-     secondsEl.innerHTML = seconds;
-
-     
+  daysEl.innerHTML = Math.floor(totalSeconds / 86400);
+  hoursEl.innerHTML = Math.floor(totalSeconds / 3600 % 24);
+  minsEl.innerHTML = Math.floor(totalSeconds / 60 % 60);
+  secondsEl.innerHTML = Math.floor(totalSeconds % 60);
 }
 
-function changeDate(){
-     if(textbox.value == ""){
-       newYears = "1 jan 2024";
-     }else {
-
-     let newDate = textbox.value;
-     newYears = newDate;
-     }
-     
-     }
+function changeDate() {
+  if (textbox.value === "") {
+    newYears = "1 jan 2024";
+  } else {
+    newYears = textbox.value;
+  }
+}
 
 countdown();
-
-setInterval(countdown, 1000)
+setInterval(countdown, 1000);
